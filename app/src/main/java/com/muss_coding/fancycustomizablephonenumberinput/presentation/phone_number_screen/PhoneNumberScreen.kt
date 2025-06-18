@@ -99,21 +99,21 @@ private fun PhoneNumberInput(
         contentAlignment = Alignment.Center
     ) {
         if (state.isSubmitted) {
-            SuccessCard(
-                phoneNumber = "+${state.selectedCountry?.phone} ${state.phoneNumber}",
-                onReset = { onEvent(PhoneNumberEvent.ResetSubmission) },
-                colors = colors
-            )
-        } else {
             if (!wantCustomizedConfirmationScreen) {
-                PhoneInputCard(
-                    state = state,
-                    onEvent = onEvent,
+                SuccessCard(
+                    phoneNumber = "+${state.selectedCountry?.phone} ${state.phoneNumber}",
+                    onReset = { onEvent(PhoneNumberEvent.ResetSubmission) },
                     colors = colors
                 )
             } else {
                 confirmationScreen(state)
             }
+        } else {
+            PhoneInputCard(
+                state = state,
+                onEvent = onEvent,
+                colors = colors
+            )
         }
 
         // Country Selection Dialog
