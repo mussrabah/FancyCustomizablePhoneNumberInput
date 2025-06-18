@@ -5,7 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.kapt)
     alias(libs.plugins.hilt.android.plugin)
     alias(libs.plugins.kotlin.compose)
-    `maven-publish`
+    id("maven-publish")
 }
 
 apollo {
